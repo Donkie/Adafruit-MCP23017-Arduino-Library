@@ -44,7 +44,7 @@ public:
                  int8_t mosi_pin);
 
   // main Arduino API methods
-  void pinMode(uint8_t pin, uint8_t mode);
+  virtual void pinMode(uint8_t pin, uint8_t mode);
   uint8_t digitalRead(uint8_t pin);
   void digitalWrite(uint8_t pin, uint8_t value);
 
@@ -53,7 +53,8 @@ public:
   void writeGPIO(uint8_t value, uint8_t port = 0);
 
   // interrupts
-  void setupInterrupts(bool mirroring, bool openDrain, uint8_t polarity);
+  virtual void setupInterrupts(bool mirroring, bool openDrain,
+                               uint8_t polarity);
   void setupInterruptPin(uint8_t pin, uint8_t mode = CHANGE);
   void disableInterruptPin(uint8_t pin);
   uint8_t getLastInterruptPin();

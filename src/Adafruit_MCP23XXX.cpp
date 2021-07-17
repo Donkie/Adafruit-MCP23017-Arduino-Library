@@ -72,7 +72,7 @@ bool Adafruit_MCP23XXX::begin_SPI(int8_t cs_pin, int8_t sck_pin,
   @param mode INPUT, OUTPUT, or INPUT_PULLUP
 */
 /**************************************************************************/
-void Adafruit_MCP23XXX::pinMode(uint8_t pin, uint8_t mode) {
+virtual void Adafruit_MCP23XXX::pinMode(uint8_t pin, uint8_t mode) {
   Adafruit_BusIO_Register IODIR(i2c_dev, spi_dev, MCP23XXX_SPIREG,
                                 getRegister(MCP23XXX_IODIR, MCP_PORT(pin)));
   Adafruit_BusIO_Register GPPU(i2c_dev, spi_dev, MCP23XXX_SPIREG,
@@ -148,8 +148,8 @@ void Adafruit_MCP23XXX::writeGPIO(uint8_t value, uint8_t port) {
   @param polarity HIGH or LOW
 */
 /**************************************************************************/
-void Adafruit_MCP23XXX::setupInterrupts(bool mirroring, bool openDrain,
-                                        uint8_t polarity) {
+virtual void Adafruit_MCP23XXX::setupInterrupts(bool mirroring, bool openDrain,
+                                                uint8_t polarity) {
   Adafruit_BusIO_Register GPINTEN(i2c_dev, spi_dev, MCP23XXX_SPIREG,
                                   getRegister(MCP23XXX_IOCON));
   Adafruit_BusIO_RegisterBits mirror_bit(&GPINTEN, 1, 6);
