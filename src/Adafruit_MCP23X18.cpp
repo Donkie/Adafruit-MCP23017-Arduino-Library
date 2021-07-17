@@ -29,7 +29,7 @@
   @param mode INPUT, OUTPUT, INPUT_PULLUP or OUTPUT_OPEN_DRAIN
 */
 /**************************************************************************/
-void Adafruit_MCP23X18::pinMode(uint8_t pin, uint8_t mode) override {
+void Adafruit_MCP23X18::pinMode(uint8_t pin, uint8_t mode) {
   Adafruit_BusIO_Register IODIR(i2c_dev, spi_dev, MCP23XXX_SPIREG,
                                 getRegister(MCP23XXX_IODIR, MCP_PORT(pin)));
   Adafruit_BusIO_Register GPPU(i2c_dev, spi_dev, MCP23XXX_SPIREG,
@@ -50,7 +50,7 @@ void Adafruit_MCP23X18::pinMode(uint8_t pin, uint8_t mode) override {
 */
 /**************************************************************************/
 void Adafruit_MCP23X18::setupInterrupts(bool mirroring, bool openDrain,
-                                        uint8_t polarity) override {
+                                        uint8_t polarity) {
   Adafruit_BusIO_Register GPINTEN(i2c_dev, spi_dev, MCP23XXX_SPIREG,
                                   getRegister(MCP23XXX_IOCON));
   Adafruit_BusIO_RegisterBits mirror_bit(&GPINTEN, 1, 6);

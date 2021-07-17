@@ -5,6 +5,7 @@
 #ifndef __Adafruit_MCP23X18_H__
 #define __Adafruit_MCP23X18_H__
 
+#include "Adafruit_MCP23X17.h"
 #include "Adafruit_MCP23XXX.h"
 
 #ifndef OUTPUT_OPEN_DRAIN
